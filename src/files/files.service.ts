@@ -1,7 +1,6 @@
 import { PutObjectCommand } from '@aws-sdk/client-s3';
 import { ConflictException, Injectable } from '@nestjs/common';
-import { S3client } from 'src/config/minio.config';
-import {v4 as uuid} from "uuid"
+import { S3client } from '../config/minio.config'
 @Injectable()
 export class FilesService {
 
@@ -20,7 +19,7 @@ export class FilesService {
 
 
     async uploadFile(file: Express.Multer.File) {
-    const fileKey = `${uuid()}-${file.originalname}`;
+    const fileKey = `${Date.now()}-${file.originalname}`;
 
     await S3client.send(
       new PutObjectCommand({
