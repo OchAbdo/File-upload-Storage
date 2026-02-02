@@ -26,37 +26,46 @@ $ npm run start:dev
 ```
 API available at: http://localhost:3000
 
+minIO available at : http://localhost:9001
+
 
 ### Optional: Docker
 Production (docker-compose.yml)
 
 ```
 # Used for production-ready builds.
-$ docker-compose -f docker-compose.yml up -d --build
+$ docker-compose -f docker-compose.yml up -d --build 
+Or
+$ docker compose -f docker-compose.yml up -d --build
 
 # Stop containers.
 $ docker-compose -f docker-compose.yml down
+Or
+$ docker compose -f docker-compose.yml down
 
 ```
+API available at: http://localhost:3000
 
+minIO available at : http://localhost:9001
 
 
 ### Available endpoints
-Task endpoints : 
+Files endpoints : 
 
 ```
 # Add (local)
 POST /files/upload
 
 # Body Example :
-Form-data
+Form-data : file.(jpg|jpeg|png)
+
 ```
 ```
 # Add (minIO)
 POST /files/uploads3
 
 # Body Example :
-Form-data
+Form-data : file.(jpg|jpeg|png)
 ```
 
 ### Additional Resources
