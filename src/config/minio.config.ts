@@ -2,9 +2,9 @@ import { S3Client } from "@aws-sdk/client-s3";
 
 export const S3client = new S3Client({
     region : "us-east-1",
-    endpoint: "http://localhost:9000",
+    endpoint: `http://${process.env.MINIO_ENDPOINT}:9000`,
     credentials:{
-        accessKeyId:"minioadmin",
+        accessKeyId: "minioadmin",
         secretAccessKey:"minioadmin"
     },
     forcePathStyle : true

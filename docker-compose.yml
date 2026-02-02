@@ -7,6 +7,10 @@ services:
     container_name: backend
     ports:
       - "3000:3000"
+    environment:
+      - MINIO_ENDPOINT=minio
+    depends_on:
+      - minio
   minio:
     image: minio/minio
     container_name: minio
